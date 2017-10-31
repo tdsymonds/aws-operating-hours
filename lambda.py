@@ -152,6 +152,7 @@ def start_today(start_on_days):
     elif '-' in start_on_days:
         # range
         days = list(map(int, start_on_days.split('-')))
+        days = range(days[0], days[1] + 1)
 
     else:
         # single day
@@ -209,7 +210,3 @@ def stop_dbinstances(client, dbinstance_ids):
         )
 
         print('Shutting down RDS: %s' % response['DBInstance']['DBInstanceArn'])
-
-
-if __name__ == '__main__':
-    main()
